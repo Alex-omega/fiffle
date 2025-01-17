@@ -1,0 +1,2 @@
+value array 是chunk主体的一个VAR, 用于存储chunk中的常量
+lines 同理, 是平行于code的列表, 第几个code所在的line值存贮在lines中的第几个元素中
