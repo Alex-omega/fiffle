@@ -1,5 +1,5 @@
-#ifndef clox_memory_h
-#define clox_memory_h
+#ifndef fif_memory_h
+#define fif_memory_h
 
 #include "common.h"
 
@@ -13,18 +13,17 @@
 #define FREE_ARRAY(type, pointer, oldCount) \
     reallocate(pointer, sizeof(type) * (oldCount), 0)
 
-// written by ChatGPT
-// #define INIT_OFFSETS(type, pointer, oldCount, newCount)                     \
-//     ({                                                                      \
-//         type* _newPointer = (type*)reallocate(pointer,                      \
-//             sizeof(type) * (oldCount), sizeof(type) * (newCount));          \
-//         if (_newPointer) {                                                  \
-//             for (size_t _i = (oldCount); _i < (newCount); ++_i) {           \
-//                 _newPointer[_i] = (type)(-1);                               \
-//             }                                                               \
-//         }                                                                   \
-//         _newPointer;                                                        \
-//     })
+#define INIT_OFFSETS(type, pointer, oldCount, newCount)                     \
+    ({                                                                      \
+        type* _newPointer = (type*)reallocate(pointer,                      \
+            sizeof(type) * (oldCount), sizeof(type) * (newCount));          \
+        if (_newPointer) {                                                  \
+            for (size_t _i = (oldCount); _i < (newCount); ++_i) {           \
+                _newPointer[_i] = (type)(-1);                               \
+            }                                                               \
+        }                                                                   \
+        _newPointer;                                                        \
+    })
 
 void* reallocate(void* pointer, size_t oldSize, size_t newSize);
 

@@ -3,6 +3,7 @@
         "*.json": "jsonc",
         "memory.h": "c",
         "chunk.h": "c",
-        "value.h": "c"
+        "value.h": "c",
+        "common.h": "c"
     }
 }
