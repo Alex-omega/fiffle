@@ -58,7 +58,8 @@ static InterpretResult run() {
                 return INTERPRET_OK;
             }
             case OP_NEGATE: {
-                push(-pop()); break;
+                push(-pop()); 
+                break;
             }
             case OP_ADD:      BINARY_OP(+); break;
             case OP_SUBTRACT: BINARY_OP(-); break;
